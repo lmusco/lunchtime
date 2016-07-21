@@ -220,6 +220,7 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var timeOfMessage = event.timestamp;
   var message = event.message;
+  var senderName = event.sender.first_name;
 
   console.log("Received message for user %d and page %d at %d with message:", 
     senderID, recipientID, timeOfMessage);
@@ -308,7 +309,7 @@ function receivedMessage(event) {
         break;
 
       default:
-        sendTextMessage(senderID, messageText+" "+senderID);
+        sendTextMessage(senderID, messageText+" "+senderName);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
