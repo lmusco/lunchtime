@@ -74,6 +74,7 @@ app.get('/send', function(req, res) {
   var textMsg = 'Ciao utente, come stai?'
   var userId = '1117396144965619';
   sendTextMessage(userId,textMsg);
+  sendImageMessage(userId);
   res.status(200).send('Message sent: ' + textMsg);
   
 });
