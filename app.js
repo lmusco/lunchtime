@@ -860,15 +860,15 @@ function callSendAPI(messageData) {
 
 
 function callGETAPI(geturl, resultText) {
-  console.log('calling get to url: ' + geturl);
+  console.log("calling get to url: " + geturl);
   request({
     uri: geturl,
     method: 'GET'
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      console.log('This is the body for tracking: ' + body);
-	  resultText = body.corsounico;
+      console.log("This is the body for tracking: " + body);
+	  resultText = body;
     } else {
       console.error(response.error);
     }
