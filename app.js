@@ -70,7 +70,10 @@ app.get('/send', function(req, res) {
     console.error("Failed validation. Make sure the validation tokens match.");
     res.sendStatus(403);          
   }  */
-  res.status(200).send('ok');
+  var textMsg = 'Ciao utente, come stai?'
+  var userId = '1117396144965619';
+  sendTextMessage(userId,textMsg);
+  res.status(200).send('Message sent: ' + textMsg);
   
 });
 
