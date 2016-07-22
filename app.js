@@ -330,6 +330,12 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
+	  case 'tracking':{
+		  var resultTracking;
+		  callGETAPI('http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012', resultTracking);
+		  sendTextMessage(senderID, resultTracking);
+	  }
+		
       default:
         sendTextMessage(senderID, messageText);
     }
@@ -845,6 +851,21 @@ function callSendAPI(messageData) {
       console.log("Successfully called Send API for recipient %s", 
         recipientId);
       }
+    } else {
+      console.error(response.error);
+    }
+  });  
+}
+
+
+function callGETAPI(geturl, resultText) {
+  request({
+    uri: geturl,
+    method: 'GET'
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      resultText = body.corsounico;
     } else {
       console.error(response.error);
     }
