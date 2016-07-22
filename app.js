@@ -331,9 +331,10 @@ function receivedMessage(event) {
         break;
 
 	  case 'tracking':
-		  sendTextMessage(senderID,'Looking for tracking id 123456789012...please wait');
+		  sendTextMessage(senderID,"Looking for tracking id 123456789012...please wait");
 		  var resultTracking;
-		  callGETAPI('http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012', resultTracking);
+		  var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
+		  callGETAPI(urltrackingposte, resultTracking);
 		  sendTextMessage(senderID, resultTracking);
 		  break;
 		
