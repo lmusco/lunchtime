@@ -331,6 +331,7 @@ function receivedMessage(event) {
         break;
 
 	  case 'tracking':
+		  sendTextMessage(senderID,'Looking for tracking id 123456789012...please wait');
 		  var resultTracking;
 		  callGETAPI('http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012', resultTracking);
 		  sendTextMessage(senderID, resultTracking);
@@ -859,13 +860,15 @@ function callSendAPI(messageData) {
 
 
 function callGETAPI(geturl, resultText) {
+  console.log('calling get to url: ' + geturl);
   request({
     uri: geturl,
     method: 'GET'
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      resultText = body.corsounico;
+      console.log('This is the body for tracking: ' + body);
+	  resultText = body.corsounico;
     } else {
       console.error(response.error);
     }
