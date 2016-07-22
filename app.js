@@ -57,6 +57,24 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
 }
 
 /*
+ * Testing app.js ti send push messages to the end user 
+ * 
+ *
+ */
+app.get('/send', function(req, res) {
+ /* if (req.query['hub.mode'] === 'subscribe' &&
+      req.query['hub.verify_token'] === VALIDATION_TOKEN) {
+    console.log("Validating webhook");
+    res.status(200).send(req.query['hub.challenge']);
+  } else {
+    console.error("Failed validation. Make sure the validation tokens match.");
+    res.sendStatus(403);          
+  }  */
+  res.status(200).send('ok');
+  
+});
+
+/*
  * Use your own validation token. Check that the token used in the Webhook 
  * setup is the same token used here.
  *
@@ -310,7 +328,6 @@ function receivedMessage(event) {
 
       default:
         sendTextMessage(senderID, messageText+" "+senderID);
-        console.log("Sender: " + event.sender);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
