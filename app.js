@@ -330,11 +330,11 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
-	  case 'tracking':{
+	  case 'tracking':
 		  var resultTracking;
 		  callGETAPI('http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012', resultTracking);
 		  sendTextMessage(senderID, resultTracking);
-	  }
+		  break;
 		
       default:
         sendTextMessage(senderID, messageText);
