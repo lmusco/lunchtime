@@ -870,7 +870,7 @@ function callGETAPI(geturl) {
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log("This is the body for tracking: %s", body);
-	  returnValueBody = body.substr(1,10);
+	  returnValueBody = body;
     } else {
       console.error(response.error);
     }
