@@ -875,7 +875,7 @@ function callGETAPI(geturl) {
 		console.log("body loaded");
 		// query for all elements with class 'foo' and loop over them
 		
-		var corsounico = parsedHTML('span.status-consegna-accordion alert-success-notifiche').text();
+		var corsounico = parsedHTML('span.alert-success-notifiche').text();
 		console.log("corsounico: %s", corsounico);
 		
     } else {
