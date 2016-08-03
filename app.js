@@ -879,8 +879,8 @@ function callGETAPI(geturl, senderID) {
 		var returnValueBody = parsedHTML('span.status-consegna-accordion').text();
 		console.log("corsounico: %s", returnValueBody);
 		console.log("senderID in callbackfunction: %s", senderID);
-		console.log("generciSender in callbackfunction: %s", generciSender);
-		sendTextMessage(generciSender, returnValueBody);
+		console.log("genericSender in callbackfunction: %s", genericSender);
+		sendTextMessage(genericSender, returnValueBody);
     } else {
       console.error(response.error);
     }
