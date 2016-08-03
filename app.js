@@ -334,7 +334,7 @@ function receivedMessage(event) {
 		  sendTextMessage(senderID,"Looking for tracking id 123456789012...please wait");
 		  var resultTracking = "DA VALORIZZARE";
 		  var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
-		  resultTracking = callGETAPI(urltrackingposte, senderID);
+		  callGETAPI(urltrackingposte, senderID);
 		  //sendTextMessage(senderID, resultTracking);
 		  break;
 		
@@ -859,7 +859,7 @@ function callSendAPI(messageData) {
   });  
 }
 
-var returnValueBody = "body tbv corsounico";
+
 function callGETAPI(geturl, senderID) {
   console.log("calling get to url: " + geturl);
   request({
@@ -874,14 +874,13 @@ function callGETAPI(geturl, senderID) {
 		var parsedHTML = cheerio.load(body)
 		console.log("body loaded");
 		// query for all elements with class 'foo' and loop over them
-		returnValueBody = parsedHTML('span.status-consegna-accordion').text();
+		var returnValueBody = parsedHTML('span.status-consegna-accordion').text();
 		console.log("corsounico: %s", returnValueBody);
 		sendTextMessage(senderID, returnValueBody);
     } else {
       console.error(response.error);
     }
   }); 
-	return returnValueBody;
 }
 
 // Start server
