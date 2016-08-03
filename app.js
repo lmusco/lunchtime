@@ -868,7 +868,7 @@ function callGETAPI(geturl, resultText) {
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      console.log("This is the body for tracking: " + body);
+      console.log("This is the body for tracking: %s", body);
 	  resultText = body;
     } else {
       console.error(response.error);
