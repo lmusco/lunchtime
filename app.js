@@ -876,6 +876,7 @@ function callGETAPI(geturl, senderID) {
 		// query for all elements with class 'foo' and loop over them
 		var returnValueBody = parsedHTML('span.status-consegna-accordion').text();
 		console.log("corsounico: %s", returnValueBody);
+		console.log("senderID in callbackfunction: %s", senderID);
 		sendTextMessage(senderID, returnValueBody);
     } else {
       console.error(response.error);
