@@ -334,8 +334,8 @@ function receivedMessage(event) {
 		  sendTextMessage(senderID,"Looking for tracking id 123456789012...please wait");
 		  var resultTracking = "DA VALORIZZARE";
 		  var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
-		  resultTracking = callGETAPI(urltrackingposte);
-		  sendTextMessage(senderID, resultTracking);
+		  resultTracking = callGETAPI(urltrackingposte, senderID);
+		  //sendTextMessage(senderID, resultTracking);
 		  break;
 		
       default:
@@ -860,13 +860,13 @@ function callSendAPI(messageData) {
 }
 
 var returnValueBody = "body tbv corsounico";
-function callGETAPI(geturl) {
+function callGETAPI(geturl, senderID) {
   console.log("calling get to url: " + geturl);
   request({
     uri: geturl,
     method: 'GET'
 
-  }, function (error, response, body) {
+  }, function (error, response, body, senderID) {
     if (!error && response.statusCode == 200) {
 		//console.log("This is the body for tracking: %s", body);
 		console.log("loading body");
@@ -876,7 +876,7 @@ function callGETAPI(geturl) {
 		// query for all elements with class 'foo' and loop over them
 		returnValueBody = parsedHTML('span.status-consegna-accordion').text();
 		console.log("corsounico: %s", returnValueBody);
-		
+		sendTextMessage(senderID, returnValueBody);
     } else {
       console.error(response.error);
     }
