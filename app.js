@@ -875,7 +875,7 @@ function callGETAPI(geturl) {
 		
 		var corsounico = parsedHTML('span.status-consegna-accordion alert-success-notifiche').text();
 		console.log("corsounico: %s", corsounico);
-		})
+		
     } else {
       console.error(response.error);
     }
