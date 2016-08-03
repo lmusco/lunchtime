@@ -862,6 +862,7 @@ function callSendAPI(messageData) {
 
 function callGETAPI(geturl, senderID) {
   console.log("calling get to url: " + geturl);
+  console.log("senderID in callgetapi: %s", senderID);
   request({
     uri: geturl,
     method: 'GET'
