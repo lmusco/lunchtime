@@ -859,15 +859,16 @@ function callSendAPI(messageData) {
   });  
 }
 
-
+var genericSender;
 function callGETAPI(geturl, senderID) {
   console.log("calling get to url: " + geturl);
   console.log("senderID in callgetapi: %s", senderID);
+  genericSender = senderID:
   request({
     uri: geturl,
     method: 'GET'
 
-  }, function (error, response, body, senderID) {
+  }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
 		//console.log("This is the body for tracking: %s", body);
 		console.log("loading body");
@@ -878,7 +879,8 @@ function callGETAPI(geturl, senderID) {
 		var returnValueBody = parsedHTML('span.status-consegna-accordion').text();
 		console.log("corsounico: %s", returnValueBody);
 		console.log("senderID in callbackfunction: %s", senderID);
-		sendTextMessage(senderID, returnValueBody);
+		console.log("generciSender in callbackfunction: %s", generciSender);
+		sendTextMessage(generciSender, returnValueBody);
     } else {
       console.error(response.error);
     }
