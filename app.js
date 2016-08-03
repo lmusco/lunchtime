@@ -859,9 +859,9 @@ function callSendAPI(messageData) {
   });  
 }
 
-
+var returnValueBody = "body tbv";
 function callGETAPI(geturl) {
-  var returnValueBody = "body tbv";
+  
   console.log("calling get to url: " + geturl);
   request({
     uri: geturl,
