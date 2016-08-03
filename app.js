@@ -861,6 +861,7 @@ function callSendAPI(messageData) {
 
 
 function callGETAPI(geturl) {
+  var returnValueBody = "body tbv";
   console.log("calling get to url: " + geturl);
   request({
     uri: geturl,
@@ -869,11 +870,12 @@ function callGETAPI(geturl) {
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log("This is the body for tracking: %s", body);
-	  return body;
+	  returnValueBody = body.substr(1,10);
     } else {
       console.error(response.error);
     }
-  });  
+  }); 
+	return returnValueBody;
 }
 
 // Start server
