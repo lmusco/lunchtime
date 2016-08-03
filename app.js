@@ -872,7 +872,7 @@ function callGETAPI(geturl) {
 		var $ = require('cheerio')
 		var parsedHTML = $.load(body)
 		// query for all elements with class 'foo' and loop over them
-		parsedHTML('.corsounico').map(function(i, foo) {
+		parsedHTML('.a').map(function(i, foo) {
 		// the foo html element into a cheerio object (same pattern as jQuery)
 		foo = $(foo);
 		console.log("corsounico: %s", foo.text());
