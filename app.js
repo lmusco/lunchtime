@@ -868,9 +868,11 @@ function callGETAPI(geturl) {
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-		console.log("This is the body for tracking: %s", body);
-		var $ = require('cheerio')
-		var parsedHTML = $.load(body)
+		//console.log("This is the body for tracking: %s", body);
+		console.log("loading body");
+		var cheerio = require('cheerio')
+		var parsedHTML = cheerio.load(body)
+		console.log("body loaded");
 		// query for all elements with class 'foo' and loop over them
 		
 		var corsounico = parsedHTML('span.status-consegna-accordion alert-success-notifiche').text();
