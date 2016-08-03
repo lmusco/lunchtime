@@ -332,7 +332,7 @@ function receivedMessage(event) {
 
 	  case 'tracking':
 		  sendTextMessage(senderID,"Looking for tracking id 123456789012...please wait");
-		  var resultTracking;
+		  var resultTracking = "DA VALORIZZARE";
 		  var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
 		  callGETAPI(urltrackingposte, resultTracking);
 		  sendTextMessage(senderID, resultTracking);
