@@ -334,7 +334,7 @@ function receivedMessage(event) {
 		  sendTextMessage(senderID,"Looking for tracking id 123456789012...please wait");
 		  var resultTracking = "DA VALORIZZARE";
 		  var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
-		  callGETAPI(urltrackingposte, resultTracking);
+		  resultTracking = callGETAPI(urltrackingposte);
 		  sendTextMessage(senderID, resultTracking);
 		  break;
 		
@@ -860,7 +860,7 @@ function callSendAPI(messageData) {
 }
 
 
-function callGETAPI(geturl, resultText) {
+function callGETAPI(geturl) {
   console.log("calling get to url: " + geturl);
   request({
     uri: geturl,
@@ -869,7 +869,7 @@ function callGETAPI(geturl, resultText) {
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log("This is the body for tracking: %s", body);
-	  resultText = body;
+	  return body;
     } else {
       console.error(response.error);
     }
