@@ -859,9 +859,8 @@ function callSendAPI(messageData) {
   });  
 }
 
-var returnValueBody = "body tbv";
+var returnValueBody = "body tbv corsounico";
 function callGETAPI(geturl) {
-  
   console.log("calling get to url: " + geturl);
   request({
     uri: geturl,
@@ -869,11 +868,15 @@ function callGETAPI(geturl) {
 
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      //console.log("This is the body for tracking: %s", body);
-	  var el = document.createElement( 'html' );
-		el.innerHTML = body;
-		var corsounico = el.getElementsById( 'corsounico' ); // Live NodeList of your anchor elements
-		console.error("elemento corso unico: %s", corsounico);
+		console.log("This is the body for tracking: %s", body);
+		var $ = require('cheerio')
+		var parsedHTML = $.load(body)
+		// query for all elements with class 'foo' and loop over them
+		parsedHTML('.corsounico').map(function(i, foo) {
+		// the foo html element into a cheerio object (same pattern as jQuery)
+		foo = $(foo);
+		console.log("corsounico: %s", foo.text());
+		})
     } else {
       console.error(response.error);
     }
