@@ -863,7 +863,7 @@ var genericSender;
 function callGETAPI(geturl, senderID) {
   console.log("calling get to url: " + geturl);
   console.log("senderID in callgetapi: %s", senderID);
-  genericSender = senderID:
+  genericSender = senderID;
   request({
     uri: geturl,
     method: 'GET'
@@ -872,8 +872,8 @@ function callGETAPI(geturl, senderID) {
     if (!error && response.statusCode == 200) {
 		//console.log("This is the body for tracking: %s", body);
 		console.log("loading body");
-		var cheerio = require('cheerio')
-		var parsedHTML = cheerio.load(body)
+		var cheerio = require('cheerio');
+		var parsedHTML = cheerio.load(body);
 		console.log("body loaded");
 		// query for all elements with class 'foo' and loop over them
 		var returnValueBody = parsedHTML('span.status-consegna-accordion').text();
