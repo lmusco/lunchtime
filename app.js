@@ -874,8 +874,8 @@ function callGETAPI(geturl) {
 		var parsedHTML = cheerio.load(body)
 		console.log("body loaded");
 		// query for all elements with class 'foo' and loop over them
-		var returnValueBody = parsedHTML('span.status-consegna-accordion').text();
-		console.log("corsounico: %s", corsounico);
+		returnValueBody = parsedHTML('span.status-consegna-accordion').text();
+		console.log("corsounico: %s", returnValueBody);
 		
     } else {
       console.error(response.error);
