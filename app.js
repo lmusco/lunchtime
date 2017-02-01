@@ -333,7 +333,7 @@ function receivedMessage(event) {
         break;
       
        case 'ciao':
-		    sendTextMessage(senderID, 'Ciao Luigi, puoi digitare image per ricevere una immagine, video per ricevere un video, audio per ricevere un audio, account linking per collegarti con il tuo account facebook o altre parole per ricevere un echo');
+		    sendTextMessage(senderID, 'Ciao Francesco, puoi digitare image per ricevere una immagine, video per ricevere un video, audio per ricevere un audio, account linking per collegarti con il tuo account facebook o altre parole per ricevere un echo');
 	break;
 	
 	    case 'tracking':
