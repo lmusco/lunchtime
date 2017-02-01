@@ -887,7 +887,7 @@ function callGETAPI(geturl, senderID) {
 	    	var returnValueBody1 = parsedHTML('span.delivery-status');
 	    	var returnValueBody2 = parsedHTML('span.delivery-status').text();
 	    	//var returnValueBody = parsedHTML('span.delivery-status.ng-binding');
-	    	
+	    	console.log("html dovequando: " + body;
 		console.log("corsounico: %s", returnValueBody + " 2-" + returnValueBody1 + " 3-" + returnValueBody2);
 		console.log("senderID in callbackfunction: %s", senderID);
 		console.log("genericSender in callbackfunction: %s", genericSender);
