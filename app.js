@@ -339,7 +339,8 @@ function receivedMessage(event) {
 	    case 'tracking':
 		  sendTextMessage(senderID,"Looking for tracking id 123456789012...please wait");
 		  var resultTracking = "DA VALORIZZARE";
-		  var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
+		  //var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
+		  var urltrackingposte =   "https://www.poste.it/cerca/index.html#/risultati-spedizioni/123456789012";
 		  callGETAPI(urltrackingposte, senderID);
 		  //sendTextMessage(senderID, resultTracking);
 		  break;
@@ -882,7 +883,7 @@ function callGETAPI(geturl, senderID) {
 		var parsedHTML = cheerio.load(body);
 		console.log("body loaded");
 		// query for all elements with class 'foo' and loop over them
-		var returnValueBody = parsedHTML('span.status-consegna-accordion').text();
+		var returnValueBody = parsedHTML('span.delivery-status.ng-binding').text();
 		console.log("corsounico: %s", returnValueBody);
 		console.log("senderID in callbackfunction: %s", senderID);
 		console.log("genericSender in callbackfunction: %s", genericSender);
