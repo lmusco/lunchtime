@@ -329,8 +329,12 @@ function receivedMessage(event) {
       case 'account linking':
         sendAccountLinking(senderID);
         break;
-
-	  case 'tracking':
+      
+       case 'ciao':
+		    sendTextMessage(senderID, 'Ciao Luigi, puoi digitare image per ricevere una immagine, video per ricevere un video, audio per ricevere un audio, account linking per collegarti con il tuo account facebook o altre parole per ricevere un echo');
+	break;
+	
+	    case 'tracking':
 		  sendTextMessage(senderID,"Looking for tracking id 123456789012...please wait");
 		  var resultTracking = "DA VALORIZZARE";
 		  var urltrackingposte = "http://www.poste.it/online/dovequando/ricerca.do?action=scaricaEsito&mpcode1=123456789012";
