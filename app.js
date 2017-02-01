@@ -883,8 +883,12 @@ function callGETAPI(geturl, senderID) {
 		var parsedHTML = cheerio.load(body);
 		console.log("body loaded");
 		// query for all elements with class 'foo' and loop over them
-		var returnValueBody = parsedHTML('span.delivery-status.ng-binding').text();
-		console.log("corsounico: %s", returnValueBody);
+		var returnValueBody = parsedHTML('span.delivery-status.ng-binding');
+	    	var returnValueBody1 = parsedHTML('span.delivery-status');
+	    	var returnValueBody2 = parsedHTML('span.delivery-status').text();
+	    	//var returnValueBody = parsedHTML('span.delivery-status.ng-binding');
+	    	
+		console.log("corsounico: %s", returnValueBody + " 2-" + returnValueBody1 + " 3-" + returnValueBody2);
 		console.log("senderID in callbackfunction: %s", senderID);
 		console.log("genericSender in callbackfunction: %s", genericSender);
 		sendTextMessage(genericSender, returnValueBody);
