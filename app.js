@@ -73,7 +73,7 @@ app.get('/send', function(req, res) {
   }  */
 
   var textMsg = 'Ciao utente, come stai?'
-  textMsg = req.get("msg");
+  textMsg = req.param("msg");
   var userId = '1117396144965619';
   sendTextMessage(userId,textMsg);
   sendImageMessage(userId);
